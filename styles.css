@@ -34,16 +34,44 @@ body {
     height: 200px;
     border: 3px solid rgb(175, 170, 170);
     border-radius: 10px;
-    background-color: burlywood;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+    background-color: #deb887;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0fr 2fr 1fr 1fr 1fr;
     font-size: 15px;
 }
 
+.card img {
+    height: 15px;
+    width: 15px;
+    position: relative;
+    left: 165px;
+    bottom: 7px;
+    filter: brightness(0) saturate(100%) invert(21%) sepia(91%) saturate(7081%) hue-rotate(358deg) brightness(91%) contrast(100%);
+}
+
+.card img:hover {
+    filter: brightness(0) saturate(100%) invert(62%) sepia(81%) saturate(3886%) hue-rotate(326deg) brightness(96%) contrast(92%);
+}
+
 .card h3 {
-    align-self: center;
-    margin-bottom: 20px;
+    align-self: start;
+    justify-self: center;
+    text-align: center;
+}
+
+.card div {
+    display: flex;
+    gap: 3px;
+    align-items: start;
+}
+
+.card p {
+    font-weight: 500;
+}
+
+.card span {
+    font-weight: 400;
 }
 
 .modal {
