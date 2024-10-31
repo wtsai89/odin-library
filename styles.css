@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px 75px;
+    gap: 25px;
+    background-color: aqua;
+}
+
+.new-book {
+    margin-bottom: 40px;
+    padding: 10px;
+    border-radius: 10px;
+    border-color: beige;
+    background-color:rgb(221, 216, 216);
+}
+
+#card-list {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.card {
+    padding: 10px;
+    width: 200px;
+    height: 200px;
+    border: 3px solid rgb(175, 170, 170);
+    border-radius: 10px;
+    background-color: burlywood;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-size: 15px;
+}
+
+.card h3 {
+    align-self: center;
+    margin-bottom: 20px;
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+}
+
+form {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+}
+
+form h2 {
+    margin-bottom: 15px;
+}
+
+form label {
+    align-self: start;
+}  
+
+form div {
+    margin-top: 25px;
+}
+
+form button {
+    padding: 5px;
+}
+
+button + button {
+    margin-left: 25px;
+}
+
+ul {
+    display: flex;
+    gap: 10px;
+}
+
+li {
+    list-style: none;
+}
