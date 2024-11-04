@@ -4,45 +4,26 @@ const showButton = document.querySelector(".new-book");
 const submitButton = document.querySelector(".submit");
 const cancelButton = document.querySelector(".cancel");
 const myLibrary = [];
-var idCount = 3;
+var idCount = 0;
 
-const sampleBook1 = {
-  title: "A Midsummer's Night Dream",
-  author: "William Shakespeare",
-  pages: 9001,
-  read: "Unread",
-  color: "#deb887",
-  id: 0,
-}
 
-const sampleBook2 = {
-  title: "Harry Potter and the Sorcerer's Stone",
-  author: "J K Rowling",
-  pages: 456,
-  read: "Read",
-  color: "#9725c1",
-  id: 1,
-}
-
-const sampleBook3 = {
-  title: "Chronicles of Narnia",
-  author: "C S Lewis",
-  pages: 234,
-  read: "Unread",
-  color: "#25c154",
-  id: 2,
-}
+const sampleBook1 = new Book("A Midsummer's Night Dream", "William Shakespeare", 9001, "Unread", "#deb887");
+const sampleBook2 = new Book("Harry Potter and the Sorcerer's Stone", "J K Rowling", 456, "Read", "#9725c1");
+const sampleBook3 = new Book("Chronicles of Narnia", "C S Lewis", 234, "Unread", "#25c154");
 
 myLibrary.push(sampleBook1);
 myLibrary.push(sampleBook2);
 myLibrary.push(sampleBook3);
 refreshCards();
 
-function Book(title, author, pages, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
+function Book(title, author, pages, read, color) {
+  this.title = title || "Untitled";
+  this.author = author || "None";
+  this.pages = pages || 0;
   this.read = read;
+  this.color = color || randomColor();
+  this.id = idCount;
+  idCount += 1;
 }
 
 const title = document.querySelector("#title");
@@ -51,22 +32,11 @@ const pages = document.querySelector("#pages");
 const unread = document.querySelector("#read_2");
 
 function addBookToLibrary() {
-  const newBook = {}
-  newBook.title = title.value || "Untitled";
+  newBook = new Book(title.value, author.value, pages.value, !unread.checked ? "Read" : "Unread");
   title.value = "";
-  newBook.author = author.value || "None";
   author.value = "";
-  newBook.pages = pages.value || 0;
   pages.value = "";
-  if (!unread.checked)
-    newBook.read = "Read";
-  else
-    newBook.read = "Unread";
   unread.checked = true;
-  newBook.color = randomColor();
-  newBook.id = idCount;
-  idCount += 1;
-
   myLibrary.push(newBook);
 }
 
