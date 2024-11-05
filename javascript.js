@@ -4,8 +4,21 @@ const showButton = document.querySelector(".new-book");
 const submitButton = document.querySelector(".submit");
 const cancelButton = document.querySelector(".cancel");
 const myLibrary = [];
-var idCount = 0;
+//var idCount = 0;
 
+class Book {
+  constructor(title, author, pages, read, color) {
+    this.title = title || "Untitled";
+    this.author = author || "None";
+    this.pages = pages || 0;
+    this.read = read;
+    this.color = color || randomColor();
+    this.id = Book.idCount;
+    Book.idCount += 1;
+  }
+
+  static idCount = 0;
+}
 
 const sampleBook1 = new Book("A Midsummer's Night Dream", "William Shakespeare", 9001, "Unread", "#deb887");
 const sampleBook2 = new Book("Harry Potter and the Sorcerer's Stone", "J K Rowling", 456, "Read", "#9725c1");
@@ -16,6 +29,7 @@ myLibrary.push(sampleBook2);
 myLibrary.push(sampleBook3);
 refreshCards();
 
+/*
 function Book(title, author, pages, read, color) {
   this.title = title || "Untitled";
   this.author = author || "None";
@@ -25,6 +39,7 @@ function Book(title, author, pages, read, color) {
   this.id = idCount;
   idCount += 1;
 }
+*/
 
 const title = document.querySelector("#title");
 const author = document.querySelector("#author");
